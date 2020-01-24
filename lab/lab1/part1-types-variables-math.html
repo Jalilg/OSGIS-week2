@@ -18,33 +18,51 @@
 
     ===================== */
 
-    var a;
-    var resultTask1 = (a > 30);
+    let a;
+    let resultTask1 = (a > 30);
 
-    var b;
-    var resultTask2 = (typeof b == 'string');
+    let b;
+    let resultTask2 = (typeof b == 'string');
 
-    var c;
-    var dataTask3 = ['peach', 'plum', 'pear'];
-    var resultTask3 = ('plum' == dataTask3[c]);
+    let c;
+    let dataTask3 = ['peach', 'plum', 'pear'];
+    let resultTask3 = ('plum' == dataTask3[c]);
 
-    var d;
-    var resultTask4 = (d == 'cassiopeia'.length);
+    let d;
+    let resultTask4 = (d == 'cassiopeia'.length);
 
-    var e;
-    var resultTask5 = (e%5 == 3);
+    let e;
+    let resultTask5 = (e%5 == 3);
 
     /* =====================
 
-    Tests (all should result in true)
+    Tests (all should report success)
 
     ===================== */
 
-    console.log('Task 1 success: ', resultTask1);
-    console.log('Task 2 success: ', resultTask2);
-    console.log('Task 3 success: ', resultTask3);
-    console.log('Task 4 success: ', resultTask4);
-    console.log('Task 5 success: ', resultTask5);
+    let taskResults = [
+      resultTask1,
+      resultTask2,
+      resultTask3,
+      resultTask4,
+      resultTask5
+    ]
+    const reportTaskSuccess = (taskNumber) => {
+      let taskIdx = taskNumber - 1
+      let taskSuccess = taskResults[taskIdx]
+
+      if (taskSuccess) {
+        console.log(`Task ${taskNumber} success!`)
+      } else {
+        console.log(`Task ${taskNumber} failure!`)
+      }
+    }
+
+    reportTaskSuccess(1)
+    reportTaskSuccess(2)
+    reportTaskSuccess(3)
+    reportTaskSuccess(4)
+    reportTaskSuccess(5)
 
     </script>
   </body>
