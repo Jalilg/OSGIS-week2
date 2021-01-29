@@ -20,6 +20,12 @@
 
 ### Readings/Homework
 
+
+#### Labs
+
+Complete labs 1 and 2, being sure to make commits often (and especially
+when instructed to in the assignment!)
+
 #### Project
 
 We're producing a simple map to help people find health centers in the
