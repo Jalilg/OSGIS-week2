@@ -86,9 +86,21 @@
 
     ===================== */
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    restaurantData = [
+    [39.95025858022527,-75.16374986146242 ,"HipCity Veg"], 
+    [39.95501457511864, -75.19990034701223, "Bonchon University City"], 
+    [39.96743656266786, -75.13702826082817,"Love & Honey Fried Chicken"],
+    [39.94843337970303, -75.21735768338164,"Dahlak"],
+    [39.98354670768114, -75.12939025041702,"Frannie Lou's Porch"],
+  ]
+
+
+    restaurantData.forEach(addMarkers);
+
+function addMarkers(array) {
+  var marker = L.marker([array[0], array[1]]).addTo(map);
+  marker.bindPopup('<p>' + array[2] + '</p>').openPopup();
+}
 
     /* =====================
 
