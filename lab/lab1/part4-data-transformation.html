@@ -64,7 +64,7 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
+    var data = bikeArrayDirty;
 
     /* =====================
 
@@ -73,6 +73,46 @@
     ===================== */
 
 
+    function cleanLatLon(stationArray){
+      if (isNaN(typeof(parseInt(stationArray[0])))) {
+        stationArray.shift();
+      };
+    }
+
+    function cleanStationName(stationArray){
+      if (stationArray.length == 2 ){
+        stationArray.push("Station Name Unknown")
+      }
+    };
+
+    function cleanStationName(stationArray){
+      if (stationArray.length == 3 ){
+        stationArray.push("Unknown # of Bikes Available")
+      }
+    };
+
+    function convertFloatLatLon(stationArray){
+      stationLon = parseFloat(stationArray[0])
+      stationLat = parseFloat(stationArray[1])
+    };
+    
+    function removeCountStrings(stationArray){
+      if (String(stationArray[3]).endsWith("stations")) {
+        stationArray[3] = parseInt(stationArray[3].charAt(0) + stationArray[3].charAt(1))
+      }
+    };
+
+function checkMoreThan20Bikes (bikeStations){
+  return bikeStations[3] > 20
+};
+
+data.forEach(cleanLatLon);
+data.forEach(cleanStationName);
+data.forEach(convertFloatLatLon);
+data.forEach(removeCountStrings);
+
+var dataFiltered = data.filter(checkMoreThan20Bikes);
+console.log(dataFiltered);
 
     /* =====================
 
@@ -99,7 +139,12 @@
 
     ===================== */
 
+dataFiltered.forEach(addMarkers) 
 
+function addMarkers(station){
+var marker = L.marker([station[1], station[0]]).addTo(map);
+  marker.bindPopup('<p> <b>' + station[2] + '</p> </b> <p>' + station[3] +' bikes available </p>').openPopup();
+};
 
     /* =====================
 
