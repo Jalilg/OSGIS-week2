@@ -71,15 +71,13 @@
     Start code to filter data
 
     ===================== */
-    console.log("original dirty data: ", data);
+
 
     function cleanLatLon(stationArray){
       if (isNaN(typeof(parseInt(stationArray[0])))) {
         stationArray.shift();
       };
     }
-
-    console.log(data);
 
     function cleanStationName(stationArray){
       if (stationArray.length == 2 ){
@@ -151,19 +149,6 @@ function addMarkers(station){
 var marker = L.marker([station[1], station[0]]).addTo(map);
   marker.bindPopup('<p> <b>' + station[2] + '</p> </b> <p>' + station[3] +' bikes available </p>').openPopup();
 };
-
-
-var dirtydatastations = dirtydatalength.map(function(b){ //b is the subarray
-      stationcount=Number(b[3].replace(" stations", ""))
-      b[3]=stationcount
-      return b
-    })
-
-    var dirtydatastations = dirtydatalength.map(function(b){
-  firstindex = b[1] == Number 
-  return b
-})
-
 
     /* =====================
 
